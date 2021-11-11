@@ -123,12 +123,43 @@ public class Calculator extends JFrame implements ActionListener{
         JButton dotButton = new JButton(".");
         dotButton.addActionListener(this);
         buttonPanel.add(dotButton);
+        JButton deleteCharButton = new JButton("<-");
+        deleteCharButton.addActionListener(this);
+        buttonPanel.add(deleteCharButton);
         
         add(buttonPanel);
     }
     public void initialize(double n, double result){
         if(result == 0.0){
             result = n;
+        }
+    }
+    public String deleteChar(String s){
+        String ans = "";
+        String str = s.substring(s.length()-1);
+        if(str.equals("s")){
+            ans = s.substring(0, s.length()-3);
+        }
+        else{
+            ans = s.substring(0, s.length()-1);
+        }
+        return ans;
+    }
+    public boolean numCheck(String s){
+        //
+        try{
+            if(checker(s)){
+                double j = Double.parseDouble(s);
+                return true;
+            }
+            else {
+                int i = Integer.parseInt(s);
+                return true;
+            }
+        }
+        catch(Exception e){
+            //
+            return false;
         }
     }
     public void comp() throws DivisionByZeroException{
@@ -220,106 +251,276 @@ public class Calculator extends JFrame implements ActionListener{
         String actionCommand = e.getActionCommand();
 
         if (actionCommand.equals("0")) {
-            operandField.setText(operandField.getText()+"0");
-            initialize(0.0, result);
-            number+="0";
+            if(number.equals("=")){
+                operandField.setText("0");
+                initialize(0.0, result);
+                number="0";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"0");
+                initialize(0.0, result);
+                number+="0";
+            }
         } 
         else if (actionCommand.equals("1")) {
-            operandField.setText(operandField.getText()+"1");
-            initialize(1.0, result);
-            number+="1";
+            if(number.equals("=")){
+                operandField.setText("1");
+                initialize(1.0, result);
+                number="1";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"1");
+                initialize(1.0, result);
+                number+="1";
+            }
         } 
         else if (actionCommand.equals("2")) {
-            operandField.setText(operandField.getText()+"2");
-            initialize(2.0, result);
-            number += "2";
+            if(number.equals("=")){
+                operandField.setText("2");
+                initialize(2.0, result);
+                number="2";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"2");
+                initialize(2.0, result);
+                number += "2";
+            }
         } 
         else if (actionCommand.equals("3")) {
-            operandField.setText(operandField.getText()+"3");
-            initialize(3.0, result);
-            number+="3";
+            if(number.equals("=")){
+                operandField.setText("3");
+                initialize(3.0, result);
+                number="3";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"3");
+                initialize(3.0, result);
+                number+="3";
+            }
         } 
         else if (actionCommand.equals("4")) {
-            operandField.setText(operandField.getText()+"4");
-            initialize(4.0, result);
-            number+="4";
+            if(number.equals("=")){
+                operandField.setText("4");
+                initialize(3.0, result);
+                number="4";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"4");
+                initialize(4.0, result);
+                number+="4";
+            }
         } 
         else if (actionCommand.equals("5")) {
-            operandField.setText(operandField.getText()+"5");
-            initialize(5.0, result);
-            number+="5";
+            if(number.equals("=")){
+                operandField.setText("5");
+                initialize(5.0, result);
+                number="5";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"5");
+                initialize(5.0, result);
+                number+="5";
+            }
         } 
         else if (actionCommand.equals("6")) {
-            operandField.setText(operandField.getText()+"6");
-            initialize(6.0, result);
-            number+="6";
+            if(number.equals("=")){
+                operandField.setText("6");
+                initialize(6.0, result);
+                number="6";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"6");
+                initialize(6.0, result);
+                number+="6";
+            }
         } 
         else if (actionCommand.equals("7")) {
-            operandField.setText(operandField.getText()+"7");
-            initialize(7.0, result);
-            number+="7";
+            if(number.equals("=")){
+                operandField.setText("7");
+                initialize(7.0, result);
+                number="7";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"7");
+                initialize(7.0, result);
+                number+="7";
+            }
         } 
         else if (actionCommand.equals("8")) {
-            operandField.setText(operandField.getText()+"8");
-            initialize(8.0, result);
-            number+="8";
+            if(number.equals("=")){
+                operandField.setText("8");
+                initialize(8.0, result);
+                number="8";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"8");
+                initialize(8.0, result);
+                number+="8";
+            }
         } 
         else if (actionCommand.equals("9")) {
-            operandField.setText(operandField.getText()+"9");
-            initialize(9.0, result);
-            number+="9";
+            if(number.equals("=")){
+                operandField.setText("9");
+                initialize(9.0, result);
+                number="9";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"9");
+                initialize(9.0, result);
+                number+="9";
+            }
         } 
         else if (actionCommand.equals("*")) {
-            operandField.setText(operandField.getText()+"*");
-            arr.add("*");
-            if(checker(number) == true){
-                array.add(stringToDouble(number));
+            if(number.equals("=")){
+                operandField.setText("Ans*");
+                initialize(stringToDouble(prevAns), result);
+                number = cutter(prevAns);
+                arr.clear();
+                array.clear();
+
+                arr.add("*");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
             else{
-                array.add(stringToDouble(number+".0"));
+                operandField.setText(operandField.getText()+"*");
+                arr.add("*");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
-            number = "";
         } 
         else if (actionCommand.equals("/")) {
-            operandField.setText(operandField.getText()+"/");
-            arr.add("/");
-            if(checker(number) == true){
-                array.add(stringToDouble(number));
+            if(number.equals("=")){
+                operandField.setText("Ans/");
+                initialize(stringToDouble(prevAns), result);
+                number = cutter(prevAns);
+                arr.clear();
+                array.clear();
+
+                arr.add("/");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
             else{
-                array.add(stringToDouble(number+".0"));
+                operandField.setText(operandField.getText()+"/");
+                arr.add("/");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
-            number = "";
         } 
         else if (actionCommand.equals("+")) {
-            operandField.setText(operandField.getText()+"+");
-            arr.add("+");
-            if(checker(number) == true){
-                array.add(stringToDouble(number));
+            if(number.equals("=")){
+                operandField.setText("Ans+");
+                initialize(stringToDouble(prevAns), result);
+                number = cutter(prevAns);
+                arr.clear();
+                array.clear();
+
+                arr.add("+");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
             else{
-                array.add(stringToDouble(number+".0"));
+                operandField.setText(operandField.getText()+"+");
+                arr.add("+");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
-            number = "";
         } 
         else if (actionCommand.equals("-")) {
-            operandField.setText(operandField.getText()+"-");
-            arr.add("-");
-            if(checker(number) == true){
-                array.add(stringToDouble(number));
+            if(number.equals("=")){
+                operandField.setText("Ans-");
+                initialize(stringToDouble(prevAns), result);
+                number = cutter(prevAns);
+                arr.clear();
+                array.clear();
+
+                arr.add("-");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
             else{
-                array.add(stringToDouble(number+".0"));
+                operandField.setText(operandField.getText()+"-");
+                arr.add("-");
+                if(checker(number) == true){
+                    array.add(stringToDouble(number));
+                }
+                else{
+                    array.add(stringToDouble(number+".0"));
+                }
+                number = "";
             }
-            number = "";
         } 
         else if (actionCommand.equals("Ans")) {
-            operandField.setText(operandField.getText()+"Ans");
-            initialize(stringToDouble(prevAns), result);
-            number+= cutter(prevAns);
+            if(number.equals("=")){
+                operandField.setText("Ans");
+                initialize(stringToDouble(prevAns), result);
+                number = cutter(prevAns);
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+"Ans");
+                initialize(stringToDouble(prevAns), result);
+                number+= cutter(prevAns);
+            }
         } 
         else if (actionCommand.equals("=")) {
-            operandField.setText(operandField.getText()+"=");
             if(checker(number) == true){
                 array.add(stringToDouble(number));
             }
@@ -333,11 +534,39 @@ public class Calculator extends JFrame implements ActionListener{
                 operandField.setText(e2.getMessage());
             }
             resultField.setText(Double.toString(result));
-            number = "";
+            number = "=";
         } 
         else if (actionCommand.equals(".")) {
-            operandField.setText(operandField.getText()+".");
-            number += ".";
+            if(number.equals("=")){
+                operandField.setText(".");
+                number = "0.";
+                arr.clear();
+                array.clear();
+            }
+            else{
+                operandField.setText(operandField.getText()+".");
+                number += "0.";
+            }
+        } 
+        else if (actionCommand.equals("<-")) {
+            String s = operandField.getText();
+            int len = s.length();
+            String last;
+            if(!s.equals("")){
+                last = s.substring(len-1);
+                operandField.setText(deleteChar(s));
+                if(numCheck(last)){
+                    if(!number.equals("")){
+                        number = deleteChar(number);
+                    }
+                    else{
+                        array.remove(array.size()-1);
+                    }
+                }
+                else{
+                    arr.remove(arr.size()-1);
+                }
+            }
         } 
         else if (actionCommand.equals("Reset")) {
             number = "0.0";
