@@ -1,2 +1,2 @@
 # Calculator
-Calculator app in Java-Swing GUI
+Calculator app in the Java-Swing GUI
