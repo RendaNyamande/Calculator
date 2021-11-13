@@ -23,6 +23,7 @@ public class Calculator extends JFrame implements ActionListener{
     private ArrayList<Double> array = new ArrayList<Double>();
     private ArrayList<String> arr = new ArrayList<String>();
     private String number = "";
+    private boolean equals = false;
     private String prevAns = "0.0";
 
     public Calculator(){
@@ -251,12 +252,13 @@ public class Calculator extends JFrame implements ActionListener{
         String actionCommand = e.getActionCommand();
 
         if (actionCommand.equals("0")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("0");
                 initialize(0.0, result);
                 number="0";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"0");
@@ -265,12 +267,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("1")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("1");
                 initialize(1.0, result);
                 number="1";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"1");
@@ -279,12 +282,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("2")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("2");
                 initialize(2.0, result);
                 number="2";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"2");
@@ -293,12 +297,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("3")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("3");
                 initialize(3.0, result);
                 number="3";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"3");
@@ -307,12 +312,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("4")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("4");
                 initialize(3.0, result);
                 number="4";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"4");
@@ -321,12 +327,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("5")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("5");
                 initialize(5.0, result);
                 number="5";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"5");
@@ -335,12 +342,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("6")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("6");
                 initialize(6.0, result);
                 number="6";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"6");
@@ -349,12 +357,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("7")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("7");
                 initialize(7.0, result);
                 number="7";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"7");
@@ -363,12 +372,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("8")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("8");
                 initialize(8.0, result);
                 number="8";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"8");
@@ -377,12 +387,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("9")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("9");
                 initialize(9.0, result);
                 number="9";
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"9");
@@ -391,7 +402,7 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("*")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("Ans*");
                 initialize(stringToDouble(prevAns), result);
                 number = cutter(prevAns);
@@ -406,6 +417,7 @@ public class Calculator extends JFrame implements ActionListener{
                     array.add(stringToDouble(number+".0"));
                 }
                 number = "";
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"*");
@@ -420,7 +432,7 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("/")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("Ans/");
                 initialize(stringToDouble(prevAns), result);
                 number = cutter(prevAns);
@@ -435,6 +447,7 @@ public class Calculator extends JFrame implements ActionListener{
                     array.add(stringToDouble(number+".0"));
                 }
                 number = "";
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"/");
@@ -449,7 +462,7 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("+")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("Ans+");
                 initialize(stringToDouble(prevAns), result);
                 number = cutter(prevAns);
@@ -464,6 +477,7 @@ public class Calculator extends JFrame implements ActionListener{
                     array.add(stringToDouble(number+".0"));
                 }
                 number = "";
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"+");
@@ -478,7 +492,7 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("-")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("Ans-");
                 initialize(stringToDouble(prevAns), result);
                 number = cutter(prevAns);
@@ -493,6 +507,7 @@ public class Calculator extends JFrame implements ActionListener{
                     array.add(stringToDouble(number+".0"));
                 }
                 number = "";
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"-");
@@ -507,12 +522,13 @@ public class Calculator extends JFrame implements ActionListener{
             }
         } 
         else if (actionCommand.equals("Ans")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText("Ans");
                 initialize(stringToDouble(prevAns), result);
                 number = cutter(prevAns);
                 arr.clear();
                 array.clear();
+                equals = false;
             }
             else{
                 operandField.setText(operandField.getText()+"Ans");
@@ -534,14 +550,15 @@ public class Calculator extends JFrame implements ActionListener{
                 operandField.setText(e2.getMessage());
             }
             resultField.setText(Double.toString(result));
-            number = "=";
+            equals = true;
         } 
         else if (actionCommand.equals(".")) {
-            if(number.equals("=")){
+            if(equals){
                 operandField.setText(".");
                 number = "0.";
                 arr.clear();
                 array.clear();
+                equals = true;
             }
             else{
                 operandField.setText(operandField.getText()+".");
