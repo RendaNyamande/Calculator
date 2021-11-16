@@ -24,6 +24,7 @@ public class Calculator extends JFrame implements ActionListener{
     private ArrayList<String> arr = new ArrayList<String>();
     private String number = "";
     private boolean equals = false;
+    private boolean reset = false;
     private String prevAns = "0.0";
 
     public Calculator(){
@@ -210,6 +211,7 @@ public class Calculator extends JFrame implements ActionListener{
         result = array.get(count);
         prevAns = Double.toString(result);
     }
+    /*
     public String cutter(String s){
         String[] arr1 = s.split("");
         String[] arr2 = new String[(arr1.length)-2];
@@ -221,17 +223,20 @@ public class Calculator extends JFrame implements ActionListener{
             ans += arr2[i];
         }
         return ans;
+    }*/
+    public String cutter(String s){
+        //
+        return s.substring(0, s.length()-2);
     }
     
     public boolean checker(String s) {
-        String[] arr1 = s.split("");
-        boolean bool = false;
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i].equals(".")) {
-                bool = true;
+        String[] arr = s.split("");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(".")) {
+                return true;
             }
         }
-        return bool;
+        return false;
     }
     private static double stringToDouble(String s){
         return Double.parseDouble(s.trim());
@@ -585,15 +590,20 @@ public class Calculator extends JFrame implements ActionListener{
                 }
             }
         } 
+        //Resets and clears
         else if (actionCommand.equals("Reset")) {
-            number = "0.0";
             array.clear();
             arr.clear();
-            resultField.setText(number);
             number = "";
-        } 
-        else if (actionCommand.equals("Clear")) {
+            resultField.setText(number);
             operandField.setText("");
+            prevAns = "0.0";
+        } 
+        //We wanna clear but keep memory
+        else if (actionCommand.equals("Clear")) {
+            number = "";
+            operandField.setText(number);
+            resultField.setText(number);
         } 
         else{
             operandField.setText("Unexpected error");
